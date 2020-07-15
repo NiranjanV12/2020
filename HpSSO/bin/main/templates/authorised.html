@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Authorised!</title>
+</head>
+<body>
+	<h1 th:inline="text">Authorised
+		[[${#httpServletRequest.remoteUser}]]!</h1>
+
+	<div>
+		<div>
+			<span th:remove="tag" th:utext="${str}" /></span>
+		</div>
+		<div style="text-align: center;">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
